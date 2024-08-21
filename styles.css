@@ -1,0 +1,104 @@
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    /* Keyframes for 3D animations */
+    @keyframes rotate {
+        0% { transform: rotateY(0deg); }
+        100% { transform: rotateY(360deg); }
+    }
+
+    @keyframes shadowPulse {
+        0% { box-shadow: 0 0 10px #FFFFFF; }
+        50% { box-shadow: 0 0 20px #FFFFFF; }
+        100% { box-shadow: 0 0 10px #FFFFFF; }
+    }
+
+    /* Typing animation */
+    .typing-container {
+        width: 100%; /* Ensure it takes the full width */
+        max-width: 100%; /* Ensure it doesn't exceed screen width */
+        background-color: #1e1e1e; /* Dark background for the typing area */
+        padding: 10px;
+        border-radius: 5px;
+        overflow-wrap: break-word; /* Break long words */
+        word-wrap: break-word; /* Ensure long words break */
+        white-space: pre-wrap; /* Preserve whitespace and line breaks */
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+    }
+
+    .typing {
+        border-right: 2px solid #00FFFF; /* Cursor effect */
+        animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
+        color: #FFFFFF; /* White text color */
+        font-family: 'Orbitron', sans-serif;
+        font-size: 20px;
+        line-height: 1.5; /* Line height for better readability */
+    }
+
+    /* Keyframes for typing effect */
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    /* Keyframes for blinking cursor */
+    @keyframes blink-caret {
+        from, to { border-color: transparent; }
+        50% { border-color: #00FFFF; }
+    }
+
+    /* General body styling */
+    body {
+        background-color: #0d0d0d;
+        color: #FFFFFF;
+        font-family: 'Orbitron', sans-serif;
+    }
+
+    /* Main container styling */
+    .main {
+        background-color: #1e1e1e;
+        color: #FFFFFF;
+        font-family: 'Orbitron', sans-serif;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.4);
+        perspective: 1000px; /* Add perspective for 3D effects */
+    }
+
+    /* Text input styling */
+    .stTextInput input {
+        background-color: #1a1a1a;
+        color: #FFFFFF;
+        border-radius: 5px;
+        padding: 10px;
+        border: 1px solid #00FFFF;
+        box-shadow: 0 0 10px #00FFFF;
+    }
+
+    /* Button styling */
+    .stButton button {
+        background: linear-gradient(45deg, #00FFFF, #00FFAB);
+        color: #FFFFFF;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFAB;
+        transition: all 0.3s ease;
+    }
+
+    .stButton button:hover {
+        background: linear-gradient(45deg, #00FFAB, #00FFFF);
+        box-shadow: 0 0 20px #00FFFF, 0 0 30px #00FFAB;
+    }
+
+    /* Header styling */
+    h1 {
+        color: #00FFFF;
+        text-shadow: 0px 0px 10px #00FFFF;
+        animation: glow 1.5s infinite;
+        transform: rotateX(15deg); /* Slight 3D rotation */
+    }
+
+    .stMarkdown h1 {
+        font-family: 'Orbitron', sans-serif;
+    }
