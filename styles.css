@@ -1,104 +1,142 @@
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-    /* Keyframes for 3D animations */
-    @keyframes rotate {
-        0% { transform: rotateY(0deg); }
-        100% { transform: rotateY(360deg); }
-    }
+/* General body styling */
+body {
+    background-color: #f0f2f5;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
-    @keyframes shadowPulse {
-        0% { box-shadow: 0 0 10px #FFFFFF; }
-        50% { box-shadow: 0 0 20px #FFFFFF; }
-        100% { box-shadow: 0 0 10px #FFFFFF; }
-    }
+/* Main container styling */
+.main {
+    background-color: #ffffff;
+    width: 90%; /* Set width to 90% */
+    margin: 10px auto; /* Center the container */
+    padding: 10px; /* Reduced padding */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
 
-    /* Typing animation */
-    .typing-container {
-        width: 100%; /* Ensure it takes the full width */
-        max-width: 100%; /* Ensure it doesn't exceed screen width */
-        background-color: #1e1e1e; /* Dark background for the typing area */
-        padding: 10px;
-        border-radius: 5px;
-        overflow-wrap: break-word; /* Break long words */
-        word-wrap: break-word; /* Ensure long words break */
-        white-space: pre-wrap; /* Preserve whitespace and line breaks */
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-    }
+/* Title styling */
+.main h1 {
+    font-size: 22px; /* Adjusted font size */
+    color: #007bff;
+    margin: 0;
+    padding-bottom: 5px; /* Reduced padding */
+    text-align: center;
+}
 
-    .typing {
-        border-right: 2px solid #00FFFF; /* Cursor effect */
-        animation: typing 2s steps(30, end), blink-caret 0.75s step-end infinite;
-        color: #FFFFFF; /* White text color */
-        font-family: 'Orbitron', sans-serif;
-        font-size: 20px;
-        line-height: 1.5; /* Line height for better readability */
-    }
+/* Chat container styling */
+.chat-container {
+    flex: 1;
+    overflow-y: auto;
+    padding: 5px; /* Reduced padding */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 5px; /* Reduced margin */
+}
 
-    /* Keyframes for typing effect */
-    @keyframes typing {
-        from { width: 0; }
-        to { width: 100%; }
-    }
+/* Chat bubble styling */
+.bubble {
+    padding: 8px; /* Reduced padding */
+    border-radius: 10px; /* Reduced border radius */
+    margin: 3px; /* Reduced margin */
+    max-width: 75%;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
 
-    /* Keyframes for blinking cursor */
-    @keyframes blink-caret {
-        from, to { border-color: transparent; }
-        50% { border-color: #00FFFF; }
-    }
+.user-bubble {
+    background-color: #007bff;
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 0;
+}
 
-    /* General body styling */
-    body {
-        background-color: #0d0d0d;
-        color: #FFFFFF;
-        font-family: 'Orbitron', sans-serif;
-    }
+.ai-bubble {
+    background-color: #e9ecef;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+}
 
-    /* Main container styling */
-    .main {
-        background-color: #1e1e1e;
-        color: #FFFFFF;
-        font-family: 'Orbitron', sans-serif;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.4);
-        perspective: 1000px; /* Add perspective for 3D effects */
-    }
+/* Input area styling */
+.input-area {
+    display: flex;
+    align-items: center;
+    padding: 5px; /* Reduced padding */
+    border-top: 1px solid #ddd;
+    background-color: #ffffff;
+}
 
-    /* Text input styling */
-    .stTextInput input {
-        background-color: #1a1a1a;
-        color: #FFFFFF;
-        border-radius: 5px;
-        padding: 10px;
-        border: 1px solid #00FFFF;
-        box-shadow: 0 0 10px #00FFFF;
-    }
+.stTextInput input {
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px; /* Reduced padding */
+    width: calc(100% - 100px); /* Adjusted width */
+    margin-right: 5px; /* Reduced margin */
+    outline: none;
+}
 
-    /* Button styling */
-    .stButton button {
-        background: linear-gradient(45deg, #00FFFF, #00FFAB);
-        color: #FFFFFF;
-        border-radius: 5px;
-        padding: 10px 20px;
-        font-size: 16px;
-        border: none;
-        box-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFAB;
-        transition: all 0.3s ease;
-    }
+.stButton button {
+    background-color: #007bff;
+    color: #ffffff;
+    border-radius: 20px;
+    padding: 8px 16px; /* Reduced padding */
+    font-size: 14px; /* Adjusted font size */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
 
-    .stButton button:hover {
-        background: linear-gradient(45deg, #00FFAB, #00FFFF);
-        box-shadow: 0 0 20px #00FFFF, 0 0 30px #00FFAB;
-    }
+.stButton button:hover {
+    background-color: #0056b3;
+}
 
-    /* Header styling */
-    h1 {
-        color: #00FFFF;
-        text-shadow: 0px 0px 10px #00FFFF;
-        animation: glow 1.5s infinite;
-        transform: rotateX(15deg); /* Slight 3D rotation */
-    }
+/* Typing animation */
+.typing-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px; /* Reduced padding */
+}
 
-    .stMarkdown h1 {
-        font-family: 'Orbitron', sans-serif;
-    }
+.typing {
+    border-right: 2px solid #007bff;
+    animation: typing 1.5s steps(30, end), blink-caret 0.75s step-end infinite;
+    color: #007bff;
+    font-size: 14px; /* Adjusted font size */
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    max-width: 100%;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #007bff; }
+}
+/* Adjustments for flexible input box */
+.stTextInput input {
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 8px;
+    width: calc(100% - 100px);
+    margin-right: 5px;
+    outline: none;
+    resize: vertical; /* Allow vertical resizing */
+    overflow-y: auto; /* Add vertical scroll if content overflows */
+    min-height: 40px; /* Set a minimum height */
+    max-height: 200px; /* Set a maximum height to avoid excessive expansion */
+}
