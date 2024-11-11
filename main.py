@@ -7,86 +7,91 @@ css = """
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
     /* General body styling */
-    body {
-        background-color: #f4f7fc;  /* Lighter background for clean look */
-        color: #333333;  /* Darker text for better readability */
-        font-family: 'Orbitron', sans-serif;
-    }
+/* General body styling */
+body {
+    background-color: #f1f8ff;  /* Soft light blue for a calm look */
+    color: #444444;  /* Slightly lighter dark text for better readability */
+    font-family: 'Roboto', sans-serif;  /* Clean, modern sans-serif font */
+}
 
-    /* Main container styling */
-    .main {
-        background-color: #ffffff;  /* White background for the content area */
-        color: #333333;  /* Dark text color for contrast */
-        font-family: 'Orbitron', sans-serif;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: none;  /* Removed the glow effect */
-    }
+/* Main container styling */
+.main {
+    background-color: #ffffff;  /* White background for clarity */
+    color: #444444;  /* Matching text color for consistency */
+    font-family: 'Roboto', sans-serif;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  /* Soft shadow for depth */
+}
 
-    /* Header styling */
-    h1 {
-        color: #4CAF50;  /* Subtle green color */
-        font-size: 36px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
+/* Header styling */
+h1 {
+    color: #2C3E50;  /* Darker blue color for professionalism */
+    font-size: 36px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;  /* Modern, bold font for headings */
+}
 
-    .stMarkdown h1 {
-        font-family: 'Orbitron', sans-serif;
-    }
+/* Input box styling */
+.stTextInput input {
+    background-color: #ffffff;  /* White background for the input box */
+    color: #333333;  /* Dark text for visibility */
+    border-radius: 5px;
+    padding: 12px 20px;
+    border: 2px solid #3498db;  /* Soft blue border */
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
 
-    /* Input box styling */
-    .stTextInput input {
-        background-color: #ffffff;  /* White background for the input box */
-        color: #333333;  /* Dark text for visibility */
-        border-radius: 5px;
-        padding: 12px 20px;
-        border: 2px solid #4CAF50;  /* Green border for a clean look */
-    }
+/* Button styling */
+.stButton button {
+    background-color: #3498db;  /* Blue background for buttons */
+    color: white;
+    border-radius: 5px;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
 
-    /* Button styling */
-    .stButton button {
-        background-color: #4CAF50;  /* Green background */
-        color: white;
-        border-radius: 5px;
-        padding: 12px 20px;
-        font-size: 16px;
-        border: none;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-    }
+.stButton button:hover {
+    background-color: #2980b9;  /* Slightly darker blue on hover */
+}
 
-    .stButton button:hover {
-        background-color: #45a049;  /* Darker green on hover */
-    }
+.stButton button:active {
+    transform: translateY(2px);  /* Button press effect */
+}
 
-    .stButton button:active {
-        transform: translateY(2px);  /* Press effect */
-    }
+/* Typing container styling */
+.typing-container {
+    background-color: #f9f9f9;  /* Soft gray background for the response area */
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #3498db;  /* Blue border around the typing box */
+    color: #444444;
+    font-family: 'Roboto', sans-serif;
+}
 
-    /* Typing container styling */
-    .typing-container {
-        background-color: #f4f7fc;  /* Light background for the typing box */
-        padding: 12px;
-        border-radius: 5px;
-        border: 1px solid #4CAF50;  /* Green border around the response area */
-        color: #333333;
-    }
+/* Typing effect styling */
+.typing {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333333;  /* Dark text for easy reading */
+    white-space: pre-wrap;
+}
 
-    /* Typing effect styling */
-    .typing {
-        font-family: 'Orbitron', sans-serif;
-        font-size: 18px;
-        line-height: 1.5;
-        white-space: pre-wrap;
-    }
+/* Warning and error message styling */
+.stWarning {
+    color: #e67e22;  /* Warm orange for warnings */
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
 
-    /* Warning and error message styling */
-    .stWarning {
-        color: #FF9800;
-        font-size: 18px;
-        font-weight: bold;
-    }
 """
 
 # Inject custom CSS into the app
