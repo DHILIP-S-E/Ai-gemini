@@ -135,7 +135,5 @@ with st.container():
                         st.markdown(f'<div class="typing-container"><div class="typing">{response_text}</div></div>', unsafe_allow_html=True)  # Add typing effect for response
                 else:
                     st.warning("No valid response received from the model.", icon="⚠️")
-            except genai.errors.ApiError as api_err:
-                st.error(f"API error occurred: {api_err}")
-            except Exception as e:
-                st.error(f"An unexpected error occurred: {e}")
+            except Exception as e:  # Catch any general exception
+                st.error(f"An error occurred: {e}")
