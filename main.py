@@ -1,6 +1,11 @@
 import streamlit as st
 import google.generativeai as genai
+import os
 import time
+from dotenv import load_dotenv
+
+# Load environment variables from .env file (for local development)
+load_dotenv()
 
 # Load the CSS file
 def load_css(file_name):
@@ -13,8 +18,12 @@ load_css("styles.css")
 # Set up your title
 st.markdown("<div class='main'><h1>🤖 AI Chatbot</h1></div>", unsafe_allow_html=True)
 
-# Hardcode the API key directly (not secure)
-api_key = "AIzaSyDo2yPvvj9rVhWmQUQPGzIuMb_JAqPhyME"  # Replace with your actual API key
+# Load API key from environment variable (for secure access)
+api_key = os.getenv("API_KEY")
+if not api_key:
+    st.error("API key is missing! Please set the API_KEY in your environment variables.")
+
+# Configure Google Generative AI with the API key
 genai.configure(api_key=api_key)
 
 # Initialize chat history
@@ -47,29 +56,32 @@ if submit_button and user_input:
             st.markdown("<div class='typing-container'><span class='typing'>Typing...</span></div>", unsafe_allow_html=True)
             time.sleep(1)  # Simulate typing delay
 
-        # Initialize the model
-        model = genai.GenerativeModel('gemini-pro')
-        chat = model.start_chat(history=[])
+        try:
+            # Initialize the model
+            model = genai.GenerativeModel('gemini-pro')  # Check if this is correct
+            chat = model.start_chat(history=[])
 
-        # Send the question to the model and get a response
-        response = chat.send_message(user_input)
+            # Send the question to the model and get a response
+            response = chat.send_message(user_input)
 
-        # Clear typing animation and display the response
-        typing_container.empty()
+            # Clear typing animation and display the response
+            typing_container.empty()
 
-        if response and response.candidates:
-            candidate = response.candidates[0]
-            safety_ratings = candidate.safety_ratings
-            unsafe = any(
-                rating.probability in ['MEDIUM', 'HIGH'] 
-                for rating in safety_ratings
-            )
-            if unsafe:
-                st.warning("The content might contain sensitive material and is not displayed.")
+            if response and response.candidates:
+                candidate = response.candidates[0]
+                safety_ratings = candidate.safety_ratings
+                unsafe = any(
+                    rating.probability in ['MEDIUM', 'HIGH'] 
+                    for rating in safety_ratings
+                )
+                if unsafe:
+                    st.warning("The content might contain sensitive material and is not displayed.")
+                else:
+                    response_text = candidate.content.parts[0].text
+                    # Add AI response to chat history
+                    st.session_state.chat_history.append({'role': 'ai', 'content': response_text})
+                    st.markdown(f"<div class='bubble ai-bubble'>{response_text}</div>", unsafe_allow_html=True)
             else:
-                response_text = candidate.content.parts[0].text
-                # Add AI response to chat history
-                st.session_state.chat_history.append({'role': 'ai', 'content': response_text})
-                st.markdown(f"<div class='bubble ai-bubble'>{response_text}</div>", unsafe_allow_html=True)
-        else:
-            st.warning("No valid response received from the model.")
+                st.warning("No valid response received from the model.")
+        except Exception as e:
+            st.error(f"An error occurred: {e}")
